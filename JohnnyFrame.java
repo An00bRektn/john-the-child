@@ -1,75 +1,57 @@
 import javax.swing.JFrame;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 import java.awt.Container;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import java.awt.GridBagConstraints;
+import java.awt.Dimension;
+import java.awt.BorderLayout;
 /**
  * This class handles the GUI for John the Child
  */
 public class JohnnyFrame extends JFrame{
-    private JTextField inputTextField = new JTextField(100);
-    private JTextField outputTextField = new JTextField(100);
+    private JTextArea inputText; 
+    private JTextArea outputText;
 
     public JohnnyFrame(){
-        setBounds(200,0,800,800);
+        setBounds(200,0,500,500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         Container contentPane = getContentPane();
-        contentPane.setLayout(new GridBagLayout());
+        contentPane.setLayout(new BorderLayout());
 
-        JButton button;
-        GridBagConstraints c = new GridBagConstraints();
-        if (true) {
-            //natural height, maximum width
-            c.fill = GridBagConstraints.HORIZONTAL;
-        }
-    
-        button = new JButton("Button 1");
-        if (true) {
-            c.weightx = 0.5;
-        }
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.gridx = 0;
-        c.gridy = 0;
-        contentPane.add(button, c);
-    
-        button = new JButton("Button 2");
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.weightx = 0.5;
-        c.gridx = 1;
-        c.gridy = 0;
-        contentPane.add(button, c);
-    
-        button = new JButton("Button 3");
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.weightx = 0.5;
-        c.gridx = 2;
-        c.gridy = 0;
-        contentPane.add(button, c);
-    
-        button = new JButton("Long-Named Button 4");
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.ipady = 40;      //make this component tall
-        c.weightx = 0.0;
-        c.gridwidth = 3;
-        c.gridx = 0;
-        c.gridy = 1;
-        contentPane.add(button, c);
-    
-        button = new JButton("5");
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.ipady = 0;       //reset to default
-        c.weighty = 1.0;   //request any extra vertical space
-        c.anchor = GridBagConstraints.PAGE_END; //bottom of space
-        c.insets = new Insets(10,0,0,0);  //top padding
-        c.gridx = 1;       //aligned with button 2
-        c.gridwidth = 2;   //2 columns wide
-        c.gridy = 2;       //third row
-        contentPane.add(button, c);
+        inputText = new JTextArea(5, 30);
+        inputText.setLineWrap(true);
+
+        outputText = new JTextArea(5, 30);
+        outputText.setLineWrap(true);
+        outputText.setEditable(false);
+
+        JScrollPane inputScroll = new JScrollPane(inputText);
+        inputScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        inputScroll.setPreferredSize(new Dimension(200, 100));
+
+        JScrollPane outputScroll = new JScrollPane(outputText);
+        outputScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        outputScroll.setPreferredSize(new Dimension(200, 100));
+
+        JPanel optionPanel = new JPanel();
+        optionPanel.setLayout(new BoxLayout(optionPanel, BoxLayout.PAGE_AXIS));
+        
+        JButton encode = new JButton("Encode");
+        JButton decode = new JButton("Decode");
+
+        optionPanel.add(encode, CENTER_ALIGNMENT);
+        optionPanel.add(decode, CENTER_ALIGNMENT);
+
+        contentPane.add(new JPanel(), BorderLayout.NORTH);
+        contentPane.add(inputScroll, BorderLayout.LINE_START);
+        contentPane.add(outputScroll, BorderLayout.LINE_END);
+        contentPane.add(optionPanel, BorderLayout.CENTER);
+        contentPane.add(new JPanel(), BorderLayout.SOUTH);
+
     }
 }
 
