@@ -6,6 +6,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.BorderLayout;
@@ -45,7 +48,22 @@ public class JohnnyFrame extends JFrame{
         optionPanel.setAlignmentY(CENTER_ALIGNMENT);
 
         JButton encode = new JButton("Encode");
+        encode.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                CaesarCipher cracker = new CaesarCipher(13);
+                String plaintext = inputText.getText();
+                outputText.setText(cracker.encode(plaintext));
+            }
+        });
+        
         JButton decode = new JButton("Decode");
+        decode.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                CaesarCipher cracker = new CaesarCipher(13);
+                String plaintext = inputText.getText();
+                outputText.setText(cracker.decode(plaintext));
+            }
+        });
 
         JComboBox<String> schema = new JComboBox<String>(ciphers);
         schema.setMaximumSize(schema.getPreferredSize());
@@ -61,4 +79,3 @@ public class JohnnyFrame extends JFrame{
         contentPane.add(new JButton("[UNDER CONSTRUCTION]"), BorderLayout.SOUTH);
     }
 }
-

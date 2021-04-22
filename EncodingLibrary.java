@@ -27,12 +27,15 @@ class CaesarCipher extends ShiftCipher {
     CaesarCipher(){
         super();
         key = 0;
+        loadQueue();
     }
     CaesarCipher(int keyIn){
         super();
         key = keyIn;
+        loadQueue();
     }
 
+    // TODO: get a wrapping alphabet
     @Override
     public String encode(String message) {
         encoded = "";
