@@ -5,6 +5,8 @@ import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -18,6 +20,8 @@ import java.awt.BorderLayout;
 public class JohnnyFrame extends JFrame{
     private JTextArea inputText; 
     private JTextArea outputText;
+    private JTextField alphabetInput;
+    private JTextField keyInput;
     private String[] ciphers = {"Caesar", "ROT-13", "Base64"};
 
     public JohnnyFrame(){
@@ -28,9 +32,11 @@ public class JohnnyFrame extends JFrame{
         contentPane.setLayout(new BorderLayout());
 
         inputText = new JTextArea(5, 30);
+        inputText.setToolTipText("Input Text Here");
         inputText.setLineWrap(true);
 
         outputText = new JTextArea(5, 30);
+        inputText.setToolTipText("Output Text");
         outputText.setLineWrap(true);
         outputText.setEditable(false);
 
@@ -47,12 +53,25 @@ public class JohnnyFrame extends JFrame{
         optionPanel.setAlignmentX(CENTER_ALIGNMENT);
         optionPanel.setAlignmentY(CENTER_ALIGNMENT);
 
+        JComboBox<String> schema = new JComboBox<String>(ciphers);
+        schema.setMaximumSize(schema.getPreferredSize());
+
+        alphabetInput = new JTextField(30);
+        alphabetInput.setMaximumSize(alphabetInput.getPreferredSize());
+        alphabetInput.setToolTipText("Custom Alphabet");
+
+        keyInput = new JTextField(10);
+        keyInput.setMaximumSize(keyInput.getPreferredSize());
+        keyInput.setToolTipText("Key");
+        
         JButton encode = new JButton("Encode");
         encode.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                CaesarCipher cracker = new CaesarCipher(13);
-                String plaintext = inputText.getText();
-                outputText.setText(cracker.encode(plaintext));
+                if(schema.getSelectedIndex() == 0){
+                    CaesarCipher cracker = new CaesarCipher(13);
+                    String plaintext = inputText.getText();
+                    outputText.setText(cracker.encode(plaintext));
+                }
             }
         });
         
@@ -65,12 +84,13 @@ public class JohnnyFrame extends JFrame{
             }
         });
 
-        JComboBox<String> schema = new JComboBox<String>(ciphers);
-        schema.setMaximumSize(schema.getPreferredSize());
-
         optionPanel.add(schema);
         optionPanel.add(encode);
         optionPanel.add(decode);
+        optionPanel.add(new JLabel("Custom Alphabet"));
+        optionPanel.add(alphabetInput);
+        optionPanel.add(new JLabel("Key"));
+        optionPanel.add(keyInput);
 
         contentPane.add(new JPanel(), BorderLayout.NORTH);
         contentPane.add(inputScroll, BorderLayout.WEST);
