@@ -105,9 +105,16 @@ class CaesarCipher extends ShiftCipher {
     protected void loadStructs(String alphabetIn){
         encodingQ.add(key);
         decodingQ.add(key);
-        for(int i=0; i<alphabetIn.length(); i++){
-            alphabet.add(String.valueOf(alphabetIn.charAt(i)));
+        if(alphabetIn.equals("") || alphabetIn.equals(" ")){
+            for(int i=0; i<ALPHABET_EN.length(); i++){
+                alphabet.add(String.valueOf(ALPHABET_EN.charAt(i)));
+            }
         }
+        else{
+            for(int i=0; i<alphabetIn.length(); i++){
+                alphabet.add(String.valueOf(alphabetIn.charAt(i)));
+            }
+        }      
     }
 
     // TODO: Implement a binary search instead???

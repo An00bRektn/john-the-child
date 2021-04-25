@@ -22,7 +22,7 @@ public class JohnnyFrame extends JFrame{
     private JTextArea outputText;
     private JTextField alphabetInput;
     private JTextField keyInput;
-    private String[] ciphers = {"Caesar", "ROT-13", "Base64"};
+    private String[] ciphers = {"Caesar", "ROT-13"};
 
     public JohnnyFrame(){
         setBounds(200,0,800,400);
@@ -64,13 +64,27 @@ public class JohnnyFrame extends JFrame{
         keyInput.setMaximumSize(keyInput.getPreferredSize());
         keyInput.setToolTipText("Key");
         
+        // TODO: Set up separate action listener classes because this is too much
         JButton encode = new JButton("Encode");
         encode.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 if(schema.getSelectedIndex() == 0){
-                    CaesarCipher cracker = new CaesarCipher(13);
-                    String plaintext = inputText.getText();
-                    outputText.setText(cracker.encode(plaintext));
+                    try {
+                        int key = Integer.parseInt(keyInput.getText());
+                        CaesarCipher cracker = new CaesarCipher(key, alphabetInput.getText());
+                        outputText.setText(cracker.encode(inputText.getText()));
+                    } catch (Exception ex) {
+                        outputText.setText("Error:" + ex);
+                    }
+                }
+                if(schema.getSelectedIndex() == 1){
+                    try {
+                        CaesarCipher cracker = new CaesarCipher(13, alphabetInput.getText());
+                        outputText.setText(cracker.encode(inputText.getText()));
+                    } catch (Exception ex) {
+                        outputText.setText("Error:" + ex);
+                    }
+                    
                 }
             }
         });
@@ -78,9 +92,25 @@ public class JohnnyFrame extends JFrame{
         JButton decode = new JButton("Decode");
         decode.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                CaesarCipher cracker = new CaesarCipher(13);
-                String plaintext = inputText.getText();
-                outputText.setText(cracker.decode(plaintext));
+                if(schema.getSelectedIndex() == 0){
+                    if(schema.getSelectedIndex() == 0){
+                        try {
+                            int key = Integer.parseInt(keyInput.getText());
+                            CaesarCipher cracker = new CaesarCipher(key, alphabetInput.getText());
+                            outputText.setText(cracker.decode(inputText.getText()));
+                        } catch (Exception ex) {
+                            outputText.setText("Error:" + ex);
+                        }
+                    }
+                }
+                if(schema.getSelectedIndex() == 1){
+                    try {
+                        CaesarCipher cracker = new CaesarCipher(13);
+                        outputText.setText(cracker.decode(inputText.getText()));
+                    } catch (Exception ex) {
+                        outputText.setText("Error:" + ex);
+                    }
+                }
             }
         });
 
