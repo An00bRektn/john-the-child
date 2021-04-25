@@ -1,4 +1,4 @@
-## John the Child
+<h2> John the Child </h2>
 > A final project for CPSC-24500
 <br>
 <h1>What is John the Child?</h1>
