@@ -15,7 +15,7 @@ You try and make your own version. Little did you realize that these types of ap
     <li><b>Programmed exclusively in Java:</b> I'm sorry.</li>
 </ul>
 
-Don't worry, I have plans to make it better. This just looks bad because I approached an Agile schedule with a Waterfall mindset.  
+> Don't worry, I have plans to make it better. This just looks bad because I approached an Agile schedule with a Waterfall mindset.  
 <br>
 Author: Ryan Syed (ryansyed@lewisu.edu)
 
