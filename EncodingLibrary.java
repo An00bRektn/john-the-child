@@ -2,6 +2,8 @@ import java.util.Queue;
 import java.util.LinkedList;
 import java.util.ArrayList;
 
+// TODO: Reevaluate the class hierarchy.
+// Should there be Cipher -> ShiftCipher -> ..., or do we set up separate abstract classes?
 abstract class ShiftCipher {
     // TODO: Write setters and getters
     
@@ -45,7 +47,6 @@ class CaesarCipher extends ShiftCipher {
         loadStructs(alphabetIn);
     }
 
-    // TODO: get a wrapping alphabet
     @Override
     public String encode(String message) {
         int charIndex;

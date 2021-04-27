@@ -16,7 +16,8 @@ import java.awt.BorderLayout;
 public class JohnnyFrame extends JFrame{
     
     public JohnnyFrame(){
-        JTabbedPane tabbedPane = new JTabbedPane();
+        // enables menus in the form of tabbing
+        JTabbedPane tabbedPane = new JTabbedPane(); 
 
         setBounds(200,0,800,400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -24,10 +25,11 @@ public class JohnnyFrame extends JFrame{
         Container contentPane = getContentPane();
         contentPane.setLayout(new BorderLayout());
 
+        // See respective .java files for detailed look
         tabbedPane.addTab("Encoding Panel", new EncodingPanel());
         tabbedPane.addTab("Hashes Panel", new JPanel());
 
-        JPanel infoPanel = new JPanel();
+        JPanel infoPanel = new JPanel(); // holds help and info buttons
 
         JButton helpButton = new JButton("Help");
         helpButton.addActionListener(new ActionListener(){
@@ -37,7 +39,7 @@ public class JohnnyFrame extends JFrame{
                 JLabel l = new JLabel(Help.displayHelp());
                 JDialog d = new JDialog(f, "Help");
                 d.add(l);
-                d.setSize(400, 400);
+                d.setSize(600, 300);
                 d.setVisible(true);  
             }
             
@@ -51,7 +53,7 @@ public class JohnnyFrame extends JFrame{
                 JLabel l = new JLabel(Help.displayInfo());
                 JDialog d = new JDialog(f, "About");
                 d.add(l);
-                d.setSize(400, 400);
+                d.setSize(600, 250);
                 d.setVisible(true);
             }
         });

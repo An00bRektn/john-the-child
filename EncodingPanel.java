@@ -23,6 +23,7 @@ public class EncodingPanel extends JPanel{
     EncodingPanel(){
         this.setLayout(new BorderLayout());
 
+        // TEXT FIELD SETUP
         inputText = new JTextArea(5, 30);
         inputText.setToolTipText("Input Text Here");
         inputText.setLineWrap(true);
@@ -40,6 +41,7 @@ public class EncodingPanel extends JPanel{
         outputScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         outputScroll.setPreferredSize(new Dimension(300, 100));
 
+        // SETTING UP OPTIONS IN CENTER
         JPanel optionPanel = new JPanel();
         optionPanel.setLayout(new BoxLayout(optionPanel, BoxLayout.PAGE_AXIS));
         optionPanel.setAlignmentX(CENTER_ALIGNMENT);
@@ -105,6 +107,10 @@ public class EncodingPanel extends JPanel{
                 }
             }
         });
+
+        /**
+         * Putting it all together
+         */
 
         optionPanel.add(schema);
         optionPanel.add(encode);
