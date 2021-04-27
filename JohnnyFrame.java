@@ -26,8 +26,8 @@ public class JohnnyFrame extends JFrame{
         contentPane.setLayout(new BorderLayout());
 
         // See respective .java files for detailed look
-        tabbedPane.addTab("Encoding Panel", new EncodingPanel());
-        tabbedPane.addTab("Hashes Panel", new JPanel());
+        tabbedPane.addTab("Encode/Decode", new EncodingPanel());
+        tabbedPane.addTab("Hashing", new HashPanel());
 
         JPanel infoPanel = new JPanel(); // holds help and info buttons
 
