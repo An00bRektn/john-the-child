@@ -49,21 +49,20 @@ public class HashPanel extends JPanel{
         schema.setMaximumSize(schema.getPreferredSize());
         
         // TODO: Set up separate action listener classes because this is too much
-        JButton encrypt = new JButton("Encode");
+        JButton encrypt = new JButton("Hash");
         encrypt.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 if(schema.getSelectedIndex() == 0){
                     try {
-                        
-                        
+                        outputText.setText(MD5.getMd5(inputText.getText()));
                     } catch (Exception ex) {
                         outputText.setText("Error:" + ex);
                     }
                 }
                 if(schema.getSelectedIndex() == 1){
                     try {
-                        
-                        
+                        byte[] hash = SHA256.getSHA(inputText.getText());
+                        outputText.setText(SHA256.toHexString(hash));
                     } catch (Exception ex) {
                         outputText.setText("Error:" + ex);
                     }
@@ -72,7 +71,7 @@ public class HashPanel extends JPanel{
             }
         });
         
-        JButton decrypt = new JButton("Decode");
+        JButton decrypt = new JButton("Brute Force Decrypt");
         decrypt.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 if(schema.getSelectedIndex() == 0){
