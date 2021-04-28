@@ -1,7 +1,10 @@
 import java.util.Queue;
 import java.util.LinkedList;
 import java.util.ArrayList;
-
+/**
+ * TODO: Implement the following ciphers:
+ * Vigenere, Affine, ROT-47
+ */
 // TODO: Reevaluate the class hierarchy.
 // Should there be Cipher -> ShiftCipher -> ..., or do we set up separate abstract classes?
 abstract class ShiftCipher {
