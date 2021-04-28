@@ -8,8 +8,7 @@ import java.util.ArrayList;
 // TODO: Reevaluate the class hierarchy.
 // Should there be Cipher -> ShiftCipher -> ..., or do we set up separate abstract classes?
 abstract class ShiftCipher {
-    // TODO: Write setters and getters
-    
+        
     protected Queue<Integer> encodingQ;
     protected Queue<Integer> decodingQ;
 

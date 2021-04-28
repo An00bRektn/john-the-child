@@ -44,8 +44,6 @@ public class EncodingPanel extends JPanel{
         // SETTING UP OPTIONS IN CENTER
         JPanel optionPanel = new JPanel();
         optionPanel.setLayout(new BoxLayout(optionPanel, BoxLayout.PAGE_AXIS));
-        optionPanel.setAlignmentX(CENTER_ALIGNMENT);
-        optionPanel.setAlignmentY(CENTER_ALIGNMENT);
 
         JComboBox<String> schema = new JComboBox<String>(ciphers);
         schema.setMaximumSize(schema.getPreferredSize());
@@ -111,6 +109,8 @@ public class EncodingPanel extends JPanel{
         /**
          * Putting it all together
          */
+
+        schema.setAlignmentX(CENTER_ALIGNMENT);
 
         optionPanel.add(schema);
         optionPanel.add(encode);
