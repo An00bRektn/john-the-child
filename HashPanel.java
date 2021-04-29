@@ -52,7 +52,7 @@ public class HashPanel extends JPanel{
             public void actionPerformed(ActionEvent e){
                 if(schema.getSelectedIndex() == 0){
                     try {
-                        outputText.setText(MD5.getMd5(inputText.getText()));
+                        outputText.setText(MD5.getMD5(inputText.getText()));
                     } catch (Exception ex) {
                         outputText.setText("Error:" + ex);
                     }

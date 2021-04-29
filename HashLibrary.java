@@ -5,11 +5,12 @@ import java.nio.charset.StandardCharsets;
 
 /**
  * Credit to GeeksforGeeks for implementation of hashing algorithms
+ * Modified to include multithreaded brute forcing
  * https://www.geeksforgeeks.org/md5-hash-in-java/
  * https://www.geeksforgeeks.org/sha-256-hash-in-java/
  */
 class MD5 {
-    public static String getMd5(String input){
+    public static String getMD5(String input){
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
 
@@ -31,6 +32,10 @@ class MD5 {
             System.out.println(e);
             return null;
         }
+    }
+
+    public static String crackMD5(String hash){
+        return "";
     }
 }
 
@@ -58,5 +63,9 @@ class SHA256{
         } 
   
         return hexString.toString(); 
+    }
+
+    public static String crackSHA(String hash){
+        return "";
     }
 }
