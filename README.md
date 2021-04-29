@@ -9,12 +9,12 @@ You try and make your own version. Little did you realize that these types of ap
 <hr>
 <h1> The Technical Details (thus far...)</h1>
 <ul>
-    <li><b>1+ Ciphers Supported</b> which is just the Caesar Cipher and ROT-13 (they are definitely totally different things)</li>
+    <li><b>2+ Ciphers Supported</b> New ciphers yet to come!</li>
     <li><b>Custom Alphabets</b> that you have to type out if you want to use it</li>
     <li><b>Programmed exclusively in Java:</b> I'm sorry.</li>
 </ul>
 
-> Don't worry, I have plans to make it better. This just looks bad because I approached an Agile schedule with a Waterfall mindset.  
+> "It gets the job done!"  
 <br>
 Author: Ryan Syed (ryansyed@lewisu.edu)
 
