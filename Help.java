@@ -4,7 +4,12 @@ public class Help {
     public static String displayHelp(){
         StringBuilder buff = new StringBuilder();
         buff.append("<html>");
-        buff.append("This is the help screen!" + "<br>");
+        buff.append("John the Child (c) 2021" + "<br><br>");
+        buff.append("To encipher or hash text, type your text into the left panel" + "<br>");
+        buff.append("Use the options in the middle to use specific keys or custom alphabets" + "<br>");
+        buff.append("The tabs at the top will switch between the different menus" + "<br>");
+        buff.append("New features to come!" + "<br>");
+
         buff.append("</html>");
         return buff.toString();
     }
