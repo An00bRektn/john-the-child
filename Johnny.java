@@ -7,7 +7,7 @@ public class Johnny {
         System.out.println("John the Child - GUI starting...");
 
         JohnnyFrame john = new JohnnyFrame();
-        john.setTitle("John the Child (v0.4)");
+        john.setTitle("John the Child (v0.5)");
         john.setVisible(true);
     }
 }

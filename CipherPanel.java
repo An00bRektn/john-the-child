@@ -13,14 +13,14 @@ import java.awt.event.ActionEvent;
 import java.awt.Dimension;
 import java.awt.BorderLayout;
 
-public class EncodingPanel extends JPanel{
+public class CipherPanel extends JPanel{
     private JTextArea inputText; 
     private JTextArea outputText;
     private JTextField alphabetInput;
     private JTextField keyInput;
-    private String[] ciphers = {"Caesar", "ROT-13"};
+    private String[] ciphers = {"Caesar", "ROT-13", "ROT-47"};
     
-    EncodingPanel(){
+    CipherPanel(){
         this.setLayout(new BorderLayout());
 
         // TEXT FIELD SETUP
@@ -78,6 +78,15 @@ public class EncodingPanel extends JPanel{
                     }
                     
                 }
+                if(schema.getSelectedIndex() == 2){
+                    try {
+                        ROT47 cracker = new ROT47();
+                        outputText.setText(cracker.encode(inputText.getText()));
+                    } catch (Exception ex) {
+                        outputText.setText("Error:" + ex);
+                    }
+                    
+                }
             }
         });
         
@@ -98,6 +107,14 @@ public class EncodingPanel extends JPanel{
                 if(schema.getSelectedIndex() == 1){
                     try {
                         CaesarCipher cracker = new CaesarCipher(13);
+                        outputText.setText(cracker.decode(inputText.getText()));
+                    } catch (Exception ex) {
+                        outputText.setText("Error:" + ex);
+                    }
+                }
+                if(schema.getSelectedIndex() == 2){
+                    try {
+                        ROT47 cracker = new ROT47();
                         outputText.setText(cracker.decode(inputText.getText()));
                     } catch (Exception ex) {
                         outputText.setText("Error:" + ex);
