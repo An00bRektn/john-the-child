@@ -1,9 +1,10 @@
 // TODO: Implement multithreaded hash cracking
-public class CrackerThread implements Runnable{
+// TODO: get wordlist from pc using file chooser thing
+public class HashCrackerThread implements Runnable{
     public int getThreadID(){return tid;}
     private int tid;
     
-    CrackerThread(int tidIn){
+    HashCrackerThread(int tidIn){
         tid = tidIn;
     }
     

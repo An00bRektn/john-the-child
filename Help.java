@@ -1,6 +1,5 @@
 public class Help {
     
-    // TODO: Add helpful help information
     public static String displayHelp(){
         StringBuilder buff = new StringBuilder();
         buff.append("<html>");

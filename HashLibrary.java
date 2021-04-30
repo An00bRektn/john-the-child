@@ -69,3 +69,34 @@ class SHA256{
         return "";
     }
 }
+
+class SHA1{
+    public static String getSHA1(String input)
+    {
+        try {
+            // Configure to use SHA-256
+            MessageDigest md = MessageDigest.getInstance("SHA-1");
+  
+            byte[] messageDigest = md.digest(input.getBytes());
+  
+            // Convert byte array into signum representation
+            BigInteger no = new BigInteger(1, messageDigest);
+  
+            // Convert message digest into hex value
+            String hashed = no.toString(16);
+  
+            // Padding for 32 bits
+            while (hashed.length() < 32) {
+                hashed = "0" + hashed;
+            }
+  
+            return hashed;
+        }
+  
+        // For specifying wrong message digest algorithms
+        catch (NoSuchAlgorithmException e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+}

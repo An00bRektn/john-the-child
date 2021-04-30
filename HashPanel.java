@@ -14,7 +14,7 @@ import java.awt.BorderLayout;
 public class HashPanel extends JPanel{
     private JTextArea inputText; 
     private JTextArea outputText;
-    private String[] hashes = {"MD5", "SHA-256"};
+    private String[] hashes = {"MD5", "SHA-256", "SHA-1"};
     
     HashPanel(){
         this.setLayout(new BorderLayout());
@@ -66,6 +66,15 @@ public class HashPanel extends JPanel{
                     }
                     
                 }
+                if(schema.getSelectedIndex() == 2){
+                    try {
+                        String hash = SHA1.getSHA1(inputText.getText());
+                        outputText.setText(hash);
+                    } catch (Exception ex) {
+                        outputText.setText("Error:" + ex);
+                    }
+                    
+                }
             }
         });
         
@@ -82,6 +91,13 @@ public class HashPanel extends JPanel{
                     }
                 }
                 if(schema.getSelectedIndex() == 1){
+                    try {
+                        outputText.setText("Not currently implemented.");
+                    } catch (Exception ex) {
+                        outputText.setText("Error:" + ex);
+                    }
+                }
+                if(schema.getSelectedIndex() == 2){
                     try {
                         outputText.setText("Not currently implemented.");
                     } catch (Exception ex) {
