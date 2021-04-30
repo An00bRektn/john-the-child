@@ -11,14 +11,26 @@ import java.awt.event.ActionEvent;
 import java.awt.Dimension;
 import java.awt.BorderLayout;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.ArrayList;
+
 public class HashPanel extends JPanel{
     private JTextArea inputText; 
     private JTextArea outputText;
+
+    private ArrayList<String> wordlist = new ArrayList<String>();
+    private ArrayList<HashCrackerThread> crackers = new ArrayList<HashCrackerThread>();
+    private ArrayList<Thread> crackerThreads = new ArrayList<Thread>();
+    private int cores = Runtime.getRuntime().availableProcessors();
+    private final int LINES = 84195;
+
     private String[] hashes = {"MD5", "SHA-256", "SHA-1"};
     
-    HashPanel(){
+    HashPanel() throws IOException{
         this.setLayout(new BorderLayout());
-
+        loadWordlist();
         // TEXT FIELD SETUP
         inputText = new JTextArea(5, 30);
         inputText.setToolTipText("Input Text Here");
@@ -52,7 +64,8 @@ public class HashPanel extends JPanel{
             public void actionPerformed(ActionEvent e){
                 if(schema.getSelectedIndex() == 0){
                     try {
-                        outputText.setText(MD5.getMD5(inputText.getText()));
+                        String hash = MD5.getMD5(inputText.getText());
+                        outputText.setText(hash);
                     } catch (Exception ex) {
                         outputText.setText("Error:" + ex);
                     }
@@ -81,13 +94,26 @@ public class HashPanel extends JPanel{
         JButton decrypt = new JButton("Brute Force Decrypt");
         decrypt.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
+                String hash = inputText.getText();
                 if(schema.getSelectedIndex() == 0){
-                    if(schema.getSelectedIndex() == 0){
-                        try {
-                            outputText.setText("Not currently implemented.");
-                        } catch (Exception ex) {
-                            outputText.setText("Error:" + ex);
+                    try {
+                        for (int i = 0; i < cores * 2; i++) {
+                            crackers.add(new HashCrackerThread((LINES*i)/(cores*2), (LINES*(i+1)/(cores*2)), 0, hash, wordlist));
                         }
+                        for (HashCrackerThread c : crackers) {
+                            crackerThreads.add(new Thread(c));
+                        }
+                        for (Thread t : crackerThreads) {
+                            t.start();
+                        }
+                        for (Thread t : crackerThreads){
+                            t.join();
+                        }
+                        for (HashCrackerThread c : crackers) {
+                            if(c.getCracked() != null){outputText.setText(c.getCracked());}
+                        }
+                    } catch (Exception ex) {
+                        System.out.println("Error:" + ex);
                     }
                 }
                 if(schema.getSelectedIndex() == 1){
@@ -124,5 +150,12 @@ public class HashPanel extends JPanel{
         add(inputScroll, BorderLayout.WEST);
         add(outputScroll, BorderLayout.EAST);
         add(optionPanel, BorderLayout.CENTER);
+    }
+
+    private void loadWordlist() throws IOException{
+        Scanner fileScan = new Scanner(new File("./dict.txt"));
+        while(fileScan.hasNext()){
+            wordlist.add(fileScan.nextLine());
+        }
     }
 }
