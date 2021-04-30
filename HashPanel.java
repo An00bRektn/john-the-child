@@ -75,8 +75,7 @@ public class HashPanel extends JPanel{
                 if(schema.getSelectedIndex() == 0){
                     if(schema.getSelectedIndex() == 0){
                         try {
-                            
-                            
+                            outputText.setText("Not currently implemented.");
                         } catch (Exception ex) {
                             outputText.setText("Error:" + ex);
                         }
@@ -84,8 +83,7 @@ public class HashPanel extends JPanel{
                 }
                 if(schema.getSelectedIndex() == 1){
                     try {
-                        
-                        
+                        outputText.setText("Not currently implemented.");
                     } catch (Exception ex) {
                         outputText.setText("Error:" + ex);
                     }

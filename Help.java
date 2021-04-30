@@ -7,6 +7,11 @@ public class Help {
         buff.append("John the Child (c) 2021" + "<br><br>");
         buff.append("To encipher or hash text, type your text into the left panel" + "<br>");
         buff.append("Use the options in the middle to use specific keys or custom alphabets" + "<br>");
+        buff.append("Please keep all inputs into the custom alphabet field or key field as long strings" + "<br><br>");
+        buff.append("Example:" + "<br>");
+        buff.append("   \"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789\" is good" + "<br>");
+        buff.append("   \"A B C D E F 0 1 2 3 4 5 6 7 8 9\" is bad" + "<br>");
+        buff.append("   \"A,B,C,D,E,F,0,1,2,3,4,5,6,7,8,9\" is bad" + "<br><br>");
         buff.append("The tabs at the top will switch between the different menus" + "<br>");
         buff.append("New features to come!" + "<br>");
         buff.append("</html>");

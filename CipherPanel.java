@@ -44,6 +44,8 @@ public class CipherPanel extends JPanel{
         // SETTING UP OPTIONS IN CENTER
         JPanel optionPanel = new JPanel();
         optionPanel.setLayout(new BoxLayout(optionPanel, BoxLayout.PAGE_AXIS));
+        optionPanel.setAlignmentX(CENTER_ALIGNMENT);
+        optionPanel.setAlignmentY(CENTER_ALIGNMENT);
 
         JComboBox<String> schema = new JComboBox<String>(ciphers);
         schema.setMaximumSize(schema.getPreferredSize());
@@ -144,8 +146,14 @@ public class CipherPanel extends JPanel{
          * Putting it all together
          */
 
-        schema.setAlignmentX(CENTER_ALIGNMENT);
-
+        
+        encode.setAlignmentX(CENTER_ALIGNMENT);
+        encode.setAlignmentY(CENTER_ALIGNMENT);
+        decode.setAlignmentX(CENTER_ALIGNMENT);
+        decode.setAlignmentY(CENTER_ALIGNMENT);
+        keyInput.setAlignmentX(CENTER_ALIGNMENT);
+        keyInput.setAlignmentY(CENTER_ALIGNMENT);
+        
         optionPanel.add(schema);
         optionPanel.add(encode);
         optionPanel.add(decode);
