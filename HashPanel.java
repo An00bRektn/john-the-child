@@ -28,9 +28,13 @@ public class HashPanel extends JPanel{
 
     private String[] hashes = {"MD5", "SHA-256", "SHA-1"};
     
-    HashPanel() throws IOException{
+    HashPanel(){
         this.setLayout(new BorderLayout());
-        loadWordlist();
+        try {
+            loadWordlist();
+        } catch (Exception e) {
+            System.out.println("File not found.");
+        }
         // TEXT FIELD SETUP
         inputText = new JTextArea(5, 30);
         inputText.setToolTipText("Input Text Here");

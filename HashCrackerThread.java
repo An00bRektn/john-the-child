@@ -29,11 +29,17 @@ public class HashCrackerThread implements Runnable{
                     }
                     break;
                 case 1:
+                    for(int i = start; i < end; i++) {
+                        if(SHA256.toHexString(SHA256.getSHA(file.get(i))).equals(hash)){ cracked = file.get(i); }
+                    }
                     break;
                 case 2:
+                    for(int i = start; i < end; i++) {
+                        if(SHA1.getSHA1(file.get(i)).equals(hash)){ cracked = file.get(i); }
+                    }
                     break;
                 default:
-                    //throw new RuntimeException();
+                    throw new RuntimeException();
             }
             
         }
