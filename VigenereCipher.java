@@ -40,7 +40,7 @@ class VigenereCipher extends ShiftCipher {
         decoded = "";
         int charIndex;
         for(int i=0; i<message.length(); i++){
-            if(isInAlphabet(String.valueOf(message.charAt(i)))){
+            if(isInAlphabet(String.valueOf(message.charAt(i)).toLowerCase())){
                 keyValue = decodingQ.remove();
                 charIndex = indexOf(String.valueOf(message.charAt(i)));
                 decoded += alphabet.get(((charIndex - keyValue + alphabet.size()) % alphabet.size()));

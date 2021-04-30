@@ -103,7 +103,6 @@ public class CipherPanel extends JPanel{
         JButton decode = new JButton("Decode");
         decode.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                if(schema.getSelectedIndex() == 0){
                     if(schema.getSelectedIndex() == 0){
                         try {
                             int key = Integer.parseInt(keyInput.getText());
@@ -113,7 +112,6 @@ public class CipherPanel extends JPanel{
                             outputText.setText("Error:" + ex);
                         }
                     }
-                }
                 if(schema.getSelectedIndex() == 1){
                     try {
                         CaesarCipher cracker = new CaesarCipher(13);
@@ -130,15 +128,13 @@ public class CipherPanel extends JPanel{
                         outputText.setText("Error:" + ex);
                     }
                 }
-                if(schema.getSelectedIndex() == 0){
-                    if(schema.getSelectedIndex() == 0){
-                        try {
-                            String key = String.valueOf(keyInput.getText());
-                            VigenereCipher cracker = new VigenereCipher(key, alphabetInput.getText());
-                            outputText.setText(cracker.decode(inputText.getText()));
-                        } catch (Exception ex) {
-                            outputText.setText("Error:" + ex);
-                        }
+                if(schema.getSelectedIndex() == 3){
+                    try {
+                        String key = String.valueOf(keyInput.getText());
+                        VigenereCipher cracker = new VigenereCipher(key, alphabetInput.getText());
+                        outputText.setText(cracker.decode(inputText.getText()));
+                    } catch (Exception ex) {
+                        outputText.setText("Error:" + ex);
                     }
                 }
             }

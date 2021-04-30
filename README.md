@@ -1,5 +1,8 @@
 ## John the Child
 > A final project for CPSC-24500
+<p align="center">
+    <img src = ./imgs/johnTheChild.jpg>
+</p>
 <h1>What is John the Child?</h1>
 Picture this, you're almost done with an Object Oriented Programming class, and you want to really put some hard work in to a final project to impress people. You'd seen stuff like CyberChef, Ciphey, and John the Ripper, and you also saw how to use queues for shift ciphers in a textbook once.
 <br>
