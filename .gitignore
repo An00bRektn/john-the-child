@@ -1,2 +1,5 @@
 # Compiled class file
 *.class
+
+# Unused currently, will be implemented in future updates
+CrackerThread.java

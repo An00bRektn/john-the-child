@@ -9,7 +9,6 @@ public class Help {
         buff.append("Use the options in the middle to use specific keys or custom alphabets" + "<br>");
         buff.append("The tabs at the top will switch between the different menus" + "<br>");
         buff.append("New features to come!" + "<br>");
-
         buff.append("</html>");
         return buff.toString();
     }

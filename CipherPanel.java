@@ -18,7 +18,7 @@ public class CipherPanel extends JPanel{
     private JTextArea outputText;
     private JTextField alphabetInput;
     private JTextField keyInput;
-    private String[] ciphers = {"Caesar", "ROT-13", "ROT-47"};
+    private String[] ciphers = {"Caesar", "ROT-13", "ROT-47", "Vigenere"};
     
     CipherPanel(){
         this.setLayout(new BorderLayout());
@@ -87,6 +87,16 @@ public class CipherPanel extends JPanel{
                     }
                     
                 }
+                if(schema.getSelectedIndex() == 3){
+                    try {
+                        String key = String.valueOf(keyInput.getText());
+                        VigenereCipher cracker = new VigenereCipher(key, alphabetInput.getText());
+                        outputText.setText(cracker.encode(inputText.getText()));
+                    } catch (Exception ex) {
+                        outputText.setText("Error:" + ex);
+                    }
+                    
+                }
             }
         });
         
@@ -118,6 +128,17 @@ public class CipherPanel extends JPanel{
                         outputText.setText(cracker.decode(inputText.getText()));
                     } catch (Exception ex) {
                         outputText.setText("Error:" + ex);
+                    }
+                }
+                if(schema.getSelectedIndex() == 0){
+                    if(schema.getSelectedIndex() == 0){
+                        try {
+                            String key = String.valueOf(keyInput.getText());
+                            VigenereCipher cracker = new VigenereCipher(key, alphabetInput.getText());
+                            outputText.setText(cracker.decode(inputText.getText()));
+                        } catch (Exception ex) {
+                            outputText.setText("Error:" + ex);
+                        }
                     }
                 }
             }

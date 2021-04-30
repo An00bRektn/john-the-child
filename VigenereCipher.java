@@ -1,81 +1,72 @@
 class VigenereCipher extends ShiftCipher {
-    private int[] key;
+    private String key;
     private Integer keyValue;
     VigenereCipher(){
         super();
-        key = 0;
+        key = "";
         loadStructs();
     }
-    VigenereCipher(int[] keyIn){
+    VigenereCipher(String keyIn){
         super();
         key = keyIn;
         loadStructs();
     }
-    VigenereCipher(int keyIn, String alphabetIn){
+    VigenereCipher(String keyIn, String alphabetIn){
         super();
         key = keyIn;
         loadStructs(alphabetIn);
     }
 
-    @Override
+    // TODO: Debug this immediately
     public String encode(String message) {
-        int charIndex;
         encoded = "";
-        message = message.toLowerCase();
+        int charIndex;
         for(int i=0; i<message.length();i++){
-            keyValue = encodingQ.remove();
-            if(alphabet.equals(null)){
-                encoded += (char) (message.charAt(i) + keyValue);
+            if(isInAlphabet(String.valueOf(message.charAt(i)).toLowerCase())){
+                keyValue = encodingQ.remove();
+                charIndex = indexOf(String.valueOf(message.charAt(i)));
+                encoded += alphabet.get(((charIndex + keyValue) % alphabet.size()));
+                encodingQ.add(keyValue);
             }
             else{
-                if(isInAlphabet(String.valueOf(message.charAt(i)))){
-                    charIndex = alphabet.indexOf(String.valueOf(message.charAt(i)));
-                    encoded += alphabet.get((charIndex + keyValue) % alphabet.size());
-                }
-                else{
-                    encoded += message.charAt(i);
-                }
+                encoded += message.charAt(i);
             }
-            encodingQ.add(keyValue);
         }
         return encoded;
     }
 
     @Override
     public String decode(String message) {
-        int charIndex;
         decoded = "";
-        message = message.toLowerCase();
+        int charIndex;
         for(int i=0; i<message.length(); i++){
-            keyValue = decodingQ.remove();
-            if(alphabet.equals(null)){
-                decoded += (char) (message.charAt(i) - keyValue);
+            if(isInAlphabet(String.valueOf(message.charAt(i)))){
+                keyValue = decodingQ.remove();
+                charIndex = indexOf(String.valueOf(message.charAt(i)));
+                decoded += alphabet.get(((charIndex - keyValue + alphabet.size()) % alphabet.size()));
+                decodingQ.add(keyValue);
             }
             else{
-                if(isInAlphabet(String.valueOf(message.charAt(i)))){
-                    charIndex = alphabet.indexOf(String.valueOf(message.charAt(i)));
-                    decoded += alphabet.get(((charIndex - keyValue) + alphabet.size()) % alphabet.size());
-                }
-                else{
-                    decoded += message.charAt(i);
-                }
+                decoded += message.charAt(i);
             }
-            decodingQ.add(keyValue);
         }
         return decoded;
     }
 
     protected void loadStructs(){ 
-        encodingQ.add(key);
-        decodingQ.add(key);
+        String tmp;
         for(int i=0; i<ALPHABET_EN.length(); i++){
             alphabet.add(String.valueOf(ALPHABET_EN.charAt(i)));
+        }
+        for(int i=0; i<key.length(); i++){
+            tmp = String.valueOf(key.charAt(i));
+            encodingQ.add(indexOf(tmp));
+            decodingQ.add(indexOf(tmp));
         }
     }
 
     protected void loadStructs(String alphabetIn){
-        encodingQ.add(key);
-        decodingQ.add(key);
+        String tmp;
         if(alphabetIn.equals("") || alphabetIn.equals(" ")){
             for(int i=0; i<ALPHABET_EN.length(); i++){
                 alphabet.add(String.valueOf(ALPHABET_EN.charAt(i)));
@@ -85,6 +76,11 @@ class VigenereCipher extends ShiftCipher {
             for(int i=0; i<alphabetIn.length(); i++){
                 alphabet.add(String.valueOf(alphabetIn.charAt(i)));
             }
+        }
+        for(int i=0; i<key.length(); i++){
+            tmp = String.valueOf(key.charAt(i));
+            encodingQ.add(indexOf(tmp));
+            decodingQ.add(indexOf(tmp));
         }      
     }
 
@@ -95,6 +91,18 @@ class VigenereCipher extends ShiftCipher {
             if(character.equals(s)){
                 returnValue = true;
             }
+        }
+        return returnValue;
+    }
+
+    private int indexOf(String character){
+        int i = 0;
+        int returnValue = 0;
+        for (String s : alphabet) {
+            if(character.toLowerCase().equals(s)){
+                returnValue = i;
+            }
+            i++;
         }
         return returnValue;
     }

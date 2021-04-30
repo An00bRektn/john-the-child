@@ -8,6 +8,8 @@ import javax.swing.JTabbedPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.Container;
 import java.awt.BorderLayout;
 /**
@@ -18,6 +20,7 @@ public class JohnnyFrame extends JFrame{
     public JohnnyFrame(){
         // enables menus in the form of tabbing
         JTabbedPane tabbedPane = new JTabbedPane(); 
+        Image icon = Toolkit.getDefaultToolkit().getImage("./imgs/johnTheChild.jpg");
 
         setBounds(200,0,800,400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -38,6 +41,7 @@ public class JohnnyFrame extends JFrame{
                 JFrame f = new JFrame();
                 JLabel l = new JLabel(Help.displayHelp());
                 JDialog d = new JDialog(f, "Help");
+                d.setIconImage(icon);
                 d.add(l);
                 d.setSize(600, 300);
                 d.setVisible(true);  
@@ -52,11 +56,15 @@ public class JohnnyFrame extends JFrame{
                 JFrame f = new JFrame();
                 JLabel l = new JLabel(Help.displayInfo());
                 JDialog d = new JDialog(f, "About");
-                d.add(l);
+                Container content = d.getContentPane();
+                d.setIconImage(icon);
+                content.add(l);
                 d.setSize(600, 250);
                 d.setVisible(true);
             }
         });
+
+        setIconImage(icon);
 
         infoPanel.add(helpButton);
         infoPanel.add(infoButton);
