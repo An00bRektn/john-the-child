@@ -30,3 +30,5 @@ Build Instructions:
 > java Johnny
 ```
 4. Have fun!
+
+> Credit to danielmiessler (github.com/danielmiessler) for the wordlist currently being used in this program. Also credit to GeeksForGeeks for their hashing code.
