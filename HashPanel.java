@@ -103,38 +103,23 @@ public class HashPanel extends JPanel{
         JButton decrypt = new JButton("Brute Force Decrypt");
         decrypt.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                String hash = inputText.getText();
                 if(schema.getSelectedIndex() == 0){
                     try {
-                        for (int i = 0; i < cores * 2; i++) {
-                            crackers.add(new HashCrackerThread((LINES*i)/(cores*2), (LINES*(i+1)/(cores*2)), 0, hash, wordlist));
-                        }
-                        for (HashCrackerThread c : crackers) {
-                            crackerThreads.add(new Thread(c));
-                        }
-                        for (Thread t : crackerThreads) {
-                            t.start();
-                        }
-                        for (Thread t : crackerThreads){
-                            t.join();
-                        }
-                        for (HashCrackerThread c : crackers) {
-                            if(c.getCracked() != null){outputText.setText(c.getCracked());}
-                        }
+                        crackHash(0);
                     } catch (Exception ex) {
-                        System.out.println("Error:" + ex);
+                        outputText.setText("Error:" + ex);
                     }
                 }
                 if(schema.getSelectedIndex() == 1){
                     try {
-                        outputText.setText("Not currently implemented.");
+                        crackHash(1);
                     } catch (Exception ex) {
                         outputText.setText("Error:" + ex);
                     }
                 }
                 if(schema.getSelectedIndex() == 2){
                     try {
-                        outputText.setText("Not currently implemented.");
+                        crackHash(2);
                     } catch (Exception ex) {
                         outputText.setText("Error:" + ex);
                     }
@@ -161,6 +146,25 @@ public class HashPanel extends JPanel{
         add(optionPanel, BorderLayout.CENTER);
     }
 
+    private void crackHash(int hashTypeIn) throws InterruptedException{
+        String hash = inputText.getText();
+        for (int i = 0; i < cores * 2; i++) {
+            crackers.add(new HashCrackerThread((LINES*i)/(cores*2), (LINES*(i+1)/(cores*2)),
+                                                hashTypeIn, hash, wordlist));
+        }
+        for (HashCrackerThread c : crackers) {
+            crackerThreads.add(new Thread(c));
+        }
+        for (Thread t : crackerThreads) {
+            t.start();
+        }
+        for (Thread t : crackerThreads){
+            t.join();
+        }
+        for (HashCrackerThread c : crackers) {
+            if(c.getCracked() != null){outputText.setText(c.getCracked());}
+        }
+    }
 
     // TODO: Using JFileChooser, implement a generalized way to use wordlists from
     //       the user's device. Also add some default wordlists to go with the program,

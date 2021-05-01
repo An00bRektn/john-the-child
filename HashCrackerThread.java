@@ -40,7 +40,7 @@ public class HashCrackerThread implements Runnable{
                     }
                     break;
                 default:
-                    throw new RuntimeException(); // should just kill the thread
+                    throw new RuntimeException(); // this should just kill the thread, unless I'm wrong
             }
             
         }
