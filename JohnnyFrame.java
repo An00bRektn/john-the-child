@@ -43,10 +43,9 @@ public class JohnnyFrame extends JFrame{
                 JDialog d = new JDialog(f, "Help");
                 d.setIconImage(icon);
                 d.add(l);
-                d.setSize(600, 300);
+                d.setSize(600, 450);
                 d.setVisible(true);  
-            }
-            
+            }           
         });
 
         JButton infoButton = new JButton("About this Project");
