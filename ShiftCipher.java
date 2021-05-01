@@ -1,12 +1,17 @@
 import java.util.Queue;
 import java.util.LinkedList;
 import java.util.ArrayList;
+
 /**
  * TODO: Implement the following ciphers:
- * Vigenere, Affine, ROT-47
+ * Affine, Ave Maria, Playfair, Railfence, Columnar Transposition, Polybius Square
+ * Please use separate classes
+ * 
+ * TODO: Reevaulate the class hierarchy and redesign as needed
+ * Should there be Cipher -> ShiftCipher -> ..., or do we set up separate abstract classes?
+ * for each type of cipher?
  */
-// TODO: Reevaluate the class hierarchy.
-// Should there be Cipher -> ShiftCipher -> ..., or do we set up separate abstract classes?
+
 abstract class ShiftCipher {
 
     protected Queue<Integer> encodingQ;

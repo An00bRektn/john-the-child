@@ -88,7 +88,6 @@ class CaesarCipher extends ShiftCipher {
         }      
     }
 
-    // TODO: Implement a binary search instead???
     private Boolean isInAlphabet(String character){
         Boolean returnValue = false;
         for (String s : alphabet) {

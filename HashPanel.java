@@ -16,6 +16,8 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.ArrayList;
 
+// TODO: Allow the hashing of files on the users system. Make sure the original file is not changed
+// But a new file is made instead
 public class HashPanel extends JPanel{
     private JTextArea inputText; 
     private JTextArea outputText;
@@ -23,9 +25,12 @@ public class HashPanel extends JPanel{
     private ArrayList<String> wordlist = new ArrayList<String>();
     private ArrayList<HashCrackerThread> crackers = new ArrayList<HashCrackerThread>();
     private ArrayList<Thread> crackerThreads = new ArrayList<Thread>();
+    // TODO: Figure out if using 2 * cores is actually the optimal number of threads for a
+    //       system or not
     private int cores = Runtime.getRuntime().availableProcessors();
     private final int LINES = 84195;
 
+    // TODO: Implement 2 more hashes
     private String[] hashes = {"MD5", "SHA-256", "SHA-1"};
     
     HashPanel(){
@@ -156,6 +161,10 @@ public class HashPanel extends JPanel{
         add(optionPanel, BorderLayout.CENTER);
     }
 
+
+    // TODO: Using JFileChooser, implement a generalized way to use wordlists from
+    //       the user's device. Also add some default wordlists to go with the program,
+    //       with an option to choose from them as well.
     private void loadWordlist() throws IOException{
         Scanner fileScan = new Scanner(new File("./dict.txt"));
         while(fileScan.hasNext()){

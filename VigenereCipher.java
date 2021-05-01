@@ -1,6 +1,8 @@
 class VigenereCipher extends ShiftCipher {
+    
     private String key;
     private Integer keyValue;
+    
     VigenereCipher(){
         super();
         key = "";
@@ -17,7 +19,6 @@ class VigenereCipher extends ShiftCipher {
         loadStructs(alphabetIn);
     }
 
-    // TODO: Debug this immediately
     public String encode(String message) {
         encoded = "";
         int charIndex;
@@ -84,7 +85,6 @@ class VigenereCipher extends ShiftCipher {
         }      
     }
 
-    // TODO: Implement a binary search instead???
     private Boolean isInAlphabet(String character){
         Boolean returnValue = false;
         for (String s : alphabet) {

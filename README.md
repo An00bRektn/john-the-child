@@ -14,6 +14,7 @@ You try and make your own version. Little did you realize that these types of ap
 <ul>
     <li><b>2+ Ciphers Supported</b> New ciphers yet to come!</li>
     <li><b>Custom Alphabets</b> that you have to type out if you want to use it</li>
+    <li><b>Multithreaded Hash Cracking</b> Currently supporting MD5, SHA-1, and SHA-256</li>
     <li><b>Programmed exclusively in Java:</b> I'm sorry.</li>
 </ul>
 
@@ -31,4 +32,4 @@ Build Instructions:
 ```
 4. Have fun!
 
-> Credit to danielmiessler (github.com/danielmiessler) for the wordlist currently being used in this program. Also credit to GeeksForGeeks for their hashing code.
+> Credit to [danielmiessler](github.com/danielmiessler) for the wordlist currently being used in this program. Also credit to GeeksForGeeks for their hashing code.

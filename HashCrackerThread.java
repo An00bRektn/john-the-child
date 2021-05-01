@@ -1,6 +1,3 @@
-// TODO: Implement multithreaded hash cracking
-// TODO: get wordlist from pc using file chooser thing
-
 import java.util.ArrayList;
 
 public class HashCrackerThread implements Runnable{
@@ -23,12 +20,12 @@ public class HashCrackerThread implements Runnable{
 
         public void run() {
             switch(hashType){
-                case 0:
+                case 0: // MD5
                     for(int i = start; i < end; i++) {
                         if(MD5.getMD5(file.get(i)).equals(hash)){ cracked = file.get(i); }
                     }
                     break;
-                case 1:
+                case 1: // SHA256
                     for(int i = start; i < end; i++) {
                         try {
                             if(SHA256.toHexString(SHA256.getSHA(file.get(i))).equals(hash)){ cracked = file.get(i); }
@@ -37,13 +34,13 @@ public class HashCrackerThread implements Runnable{
                         }
                     }
                     break;
-                case 2:
+                case 2: // SHA1
                     for(int i = start; i < end; i++) {
                         if(SHA1.getSHA1(file.get(i)).equals(hash)){ cracked = file.get(i); }
                     }
                     break;
                 default:
-                    throw new RuntimeException();
+                    throw new RuntimeException(); // should just kill the thread
             }
             
         }
