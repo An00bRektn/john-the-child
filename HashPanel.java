@@ -1,4 +1,3 @@
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
@@ -10,6 +9,7 @@ import java.awt.event.ActionEvent;
 
 import java.awt.Dimension;
 import java.awt.BorderLayout;
+import java.awt.GridLayout;
 
 import java.io.File;
 import java.io.IOException;
@@ -60,7 +60,7 @@ public class HashPanel extends JPanel{
 
         // SETTING UP OPTIONS IN CENTER
         JPanel optionPanel = new JPanel();
-        optionPanel.setLayout(new BoxLayout(optionPanel, BoxLayout.PAGE_AXIS));
+        optionPanel.setLayout(new GridLayout(7, 1));
         optionPanel.setAlignmentX(CENTER_ALIGNMENT);
         optionPanel.setAlignmentY(CENTER_ALIGNMENT);
 
@@ -130,15 +130,17 @@ public class HashPanel extends JPanel{
         /**
          * Putting it all together
          */
-        encrypt.setAlignmentX(CENTER_ALIGNMENT);
-        encrypt.setAlignmentY(CENTER_ALIGNMENT);
-
-        decrypt.setAlignmentX(CENTER_ALIGNMENT);
-        encrypt.setAlignmentY(CENTER_ALIGNMENT);
 
         optionPanel.add(schema);
         optionPanel.add(encrypt);
         optionPanel.add(decrypt);
+
+        schema.setAlignmentX(CENTER_ALIGNMENT);
+        schema.setAlignmentY(CENTER_ALIGNMENT);
+        encrypt.setAlignmentX(CENTER_ALIGNMENT);
+        encrypt.setAlignmentY(CENTER_ALIGNMENT);
+        decrypt.setAlignmentX(CENTER_ALIGNMENT);
+        encrypt.setAlignmentY(CENTER_ALIGNMENT);
 
         add(new JPanel(), BorderLayout.NORTH);
         add(inputScroll, BorderLayout.WEST);

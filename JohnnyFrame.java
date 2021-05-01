@@ -22,7 +22,7 @@ public class JohnnyFrame extends JFrame{
         JTabbedPane tabbedPane = new JTabbedPane(); 
         Image icon = Toolkit.getDefaultToolkit().getImage("./imgs/johnTheChild.jpg");
 
-        setBounds(200,0,800,400);
+        setBounds(200,0,800,450);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         Container contentPane = getContentPane();

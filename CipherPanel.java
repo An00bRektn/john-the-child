@@ -1,4 +1,3 @@
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
@@ -12,6 +11,7 @@ import java.awt.event.ActionEvent;
 
 import java.awt.Dimension;
 import java.awt.BorderLayout;
+import java.awt.GridLayout;
 
 public class CipherPanel extends JPanel{
     private JTextArea inputText; 
@@ -43,9 +43,7 @@ public class CipherPanel extends JPanel{
 
         // SETTING UP OPTIONS IN CENTER
         JPanel optionPanel = new JPanel();
-        optionPanel.setLayout(new BoxLayout(optionPanel, BoxLayout.PAGE_AXIS));
-        optionPanel.setAlignmentX(CENTER_ALIGNMENT);
-        optionPanel.setAlignmentY(CENTER_ALIGNMENT);
+        optionPanel.setLayout(new GridLayout(7,1));
 
         JComboBox<String> schema = new JComboBox<String>(ciphers);
         schema.setMaximumSize(schema.getPreferredSize());
@@ -145,8 +143,15 @@ public class CipherPanel extends JPanel{
         /**
          * Putting it all together
          */
-
         
+        optionPanel.add(schema);
+        optionPanel.add(encode);
+        optionPanel.add(decode);
+        optionPanel.add(new JLabel("Custom Alphabet"));
+        optionPanel.add(alphabetInput);
+        optionPanel.add(new JLabel("Key"));
+        optionPanel.add(keyInput);
+
         encode.setAlignmentX(CENTER_ALIGNMENT);
         encode.setAlignmentY(CENTER_ALIGNMENT);
         decode.setAlignmentX(CENTER_ALIGNMENT);
@@ -156,13 +161,8 @@ public class CipherPanel extends JPanel{
         keyInput.setAlignmentX(CENTER_ALIGNMENT);
         keyInput.setAlignmentY(CENTER_ALIGNMENT);
         
-        optionPanel.add(schema);
-        optionPanel.add(encode);
-        optionPanel.add(decode);
-        optionPanel.add(new JLabel("Custom Alphabet"));
-        optionPanel.add(alphabetInput);
-        optionPanel.add(new JLabel("Key"));
-        optionPanel.add(keyInput);
+        optionPanel.setAlignmentX(CENTER_ALIGNMENT);
+        optionPanel.setAlignmentY(CENTER_ALIGNMENT);
 
         add(new JPanel(), BorderLayout.NORTH);
         add(inputScroll, BorderLayout.WEST);
