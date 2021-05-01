@@ -18,7 +18,7 @@ You try and make your own version. Little did you realize that these types of ap
     <li><b>Programmed exclusively in Java:</b> I'm sorry.</li>
 </ul>
 
-> "It gets the job done!"  
+> "He gets the job done!"  
 <br>
 Author: Ryan Syed (ryansyed@lewisu.edu)
 
