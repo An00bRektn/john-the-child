@@ -151,6 +151,8 @@ public class CipherPanel extends JPanel{
         encode.setAlignmentY(CENTER_ALIGNMENT);
         decode.setAlignmentX(CENTER_ALIGNMENT);
         decode.setAlignmentY(CENTER_ALIGNMENT);
+        alphabetInput.setAlignmentX(CENTER_ALIGNMENT);
+        alphabetInput.setAlignmentY(CENTER_ALIGNMENT);
         keyInput.setAlignmentX(CENTER_ALIGNMENT);
         keyInput.setAlignmentY(CENTER_ALIGNMENT);
         
