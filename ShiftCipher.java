@@ -10,6 +10,9 @@ import java.util.ArrayList;
  * TODO: Reevaulate the class hierarchy and redesign as needed
  * Should there be Cipher -> ShiftCipher -> ..., or do we set up separate abstract classes?
  * for each type of cipher?
+ * 
+ * TODO: Implement a multithreaded brute force decryption for ciphers as appropriate
+ * Tip: See dcode.fr for their implementations
  */
 
 abstract class ShiftCipher {

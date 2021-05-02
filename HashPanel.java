@@ -158,7 +158,7 @@ public class HashPanel extends JPanel{
             crackerThreads.add(new Thread(c));
         }
         for (Thread t : crackerThreads) {
-            t.start();
+            t.run();
         }
         for (Thread t : crackerThreads){
             t.join();
