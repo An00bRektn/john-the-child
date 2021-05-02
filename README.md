@@ -22,9 +22,7 @@ You try and make your own version. Little did you realize that these types of ap
 </ul>
 
 > "He gets the job done!"  
-<p align="center">
-    <img src = "./imgs/jtcHash.png", style="width=400px; height=225px">
-</p>
+
 <br>
 Author: Ryan Syed (ryansyed@lewisu.edu)
 
