@@ -11,7 +11,7 @@ You try and make your own version. Little did you realize that these types of ap
 <i>So you try your hardest to make something that works...</i>
 <hr>
 <p align="center">
-    <img src = ./imgs/jtcCipher.png>
+    <img src = "./imgs/jtcCipher.png", style="width=400px; height=225px">
 </p>
 <h1> The Technical Details (thus far...)</h1>
 <ul>
@@ -23,7 +23,7 @@ You try and make your own version. Little did you realize that these types of ap
 
 > "He gets the job done!"  
 <p align="center">
-    <img src = ./imgs/jtcHash.png>
+    <img src = "./imgs/jtcHash.png", style="width=400px; height=225px">
 </p>
 <br>
 Author: Ryan Syed (ryansyed@lewisu.edu)
