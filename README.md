@@ -10,6 +10,9 @@ You try and make your own version. Little did you realize that these types of ap
 <br>
 <i>So you try your hardest to make something that works...</i>
 <hr>
+<p align="center">
+    <img src = ./imgs/jtcCipher.png>
+</p>
 <h1> The Technical Details (thus far...)</h1>
 <ul>
     <li><b>2+ Ciphers Supported</b> New ciphers yet to come!</li>
@@ -19,6 +22,9 @@ You try and make your own version. Little did you realize that these types of ap
 </ul>
 
 > "He gets the job done!"  
+<p align="center">
+    <img src = ./imgs/jtcHash.png>
+</p>
 <br>
 Author: Ryan Syed (ryansyed@lewisu.edu)
 
