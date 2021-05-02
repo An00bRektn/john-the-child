@@ -1,3 +1,4 @@
+// INFO: https://en.wikipedia.org/wiki/ROT13
 class ROT47 extends ShiftCipher{
     private int key = 47;
     private Integer keyValue;

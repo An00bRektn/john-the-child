@@ -60,7 +60,7 @@ public class CipherPanel extends JPanel{
         JButton encode = new JButton("Encode");
         encode.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                if(schema.getSelectedIndex() == 0){
+                if(schema.getSelectedIndex() == 0){ // Caesar
                     try {
                         int key = Integer.parseInt(keyInput.getText());
                         CaesarCipher cracker = new CaesarCipher(key, alphabetInput.getText());
@@ -69,7 +69,7 @@ public class CipherPanel extends JPanel{
                         outputText.setText("Error:" + ex);
                     }
                 }
-                if(schema.getSelectedIndex() == 1){
+                if(schema.getSelectedIndex() == 1){ // ROT13
                     try {
                         CaesarCipher cracker = new CaesarCipher(13, alphabetInput.getText());
                         outputText.setText(cracker.encode(inputText.getText()));
@@ -78,7 +78,7 @@ public class CipherPanel extends JPanel{
                     }
                     
                 }
-                if(schema.getSelectedIndex() == 2){
+                if(schema.getSelectedIndex() == 2){ // ROT47
                     try {
                         ROT47 cracker = new ROT47();
                         outputText.setText(cracker.encode(inputText.getText()));
@@ -87,7 +87,7 @@ public class CipherPanel extends JPanel{
                     }
                     
                 }
-                if(schema.getSelectedIndex() == 3){
+                if(schema.getSelectedIndex() == 3){ // Vignere
                     try {
                         String key = String.valueOf(keyInput.getText());
                         VigenereCipher cracker = new VigenereCipher(key, alphabetInput.getText());
@@ -103,7 +103,7 @@ public class CipherPanel extends JPanel{
         JButton decode = new JButton("Decode");
         decode.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                    if(schema.getSelectedIndex() == 0){
+                    if(schema.getSelectedIndex() == 0){ // Caesar
                         try {
                             int key = Integer.parseInt(keyInput.getText());
                             CaesarCipher cracker = new CaesarCipher(key, alphabetInput.getText());
@@ -112,7 +112,7 @@ public class CipherPanel extends JPanel{
                             outputText.setText("Error:" + ex);
                         }
                     }
-                if(schema.getSelectedIndex() == 1){
+                if(schema.getSelectedIndex() == 1){ // ROT13
                     try {
                         CaesarCipher cracker = new CaesarCipher(13);
                         outputText.setText(cracker.decode(inputText.getText()));
@@ -120,7 +120,7 @@ public class CipherPanel extends JPanel{
                         outputText.setText("Error:" + ex);
                     }
                 }
-                if(schema.getSelectedIndex() == 2){
+                if(schema.getSelectedIndex() == 2){ // ROT47
                     try {
                         ROT47 cracker = new ROT47();
                         outputText.setText(cracker.decode(inputText.getText()));
@@ -128,7 +128,7 @@ public class CipherPanel extends JPanel{
                         outputText.setText("Error:" + ex);
                     }
                 }
-                if(schema.getSelectedIndex() == 3){
+                if(schema.getSelectedIndex() == 3){ // Vigenere
                     try {
                         String key = String.valueOf(keyInput.getText());
                         VigenereCipher cracker = new VigenereCipher(key, alphabetInput.getText());

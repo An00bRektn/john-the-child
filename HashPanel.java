@@ -103,21 +103,21 @@ public class HashPanel extends JPanel{
         JButton decrypt = new JButton("Brute Force Decrypt");
         decrypt.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                if(schema.getSelectedIndex() == 0){
+                if(schema.getSelectedIndex() == 0){ // MD5
                     try {
                         crackHash(0);
                     } catch (Exception ex) {
                         outputText.setText("Error:" + ex);
                     }
                 }
-                if(schema.getSelectedIndex() == 1){
+                if(schema.getSelectedIndex() == 1){ // SHA256
                     try {
                         crackHash(1);
                     } catch (Exception ex) {
                         outputText.setText("Error:" + ex);
                     }
                 }
-                if(schema.getSelectedIndex() == 2){
+                if(schema.getSelectedIndex() == 2){ // SHA1
                     try {
                         crackHash(2);
                     } catch (Exception ex) {
@@ -158,7 +158,8 @@ public class HashPanel extends JPanel{
             crackerThreads.add(new Thread(c));
         }
         for (Thread t : crackerThreads) {
-            t.run();
+            t.run(); // invoking the run method directly because start()
+                     // causes an exception to be thrown when called more than once per thread
         }
         for (Thread t : crackerThreads){
             t.join();
@@ -174,7 +175,7 @@ public class HashPanel extends JPanel{
     private void loadWordlist() throws IOException{
         Scanner fileScan = new Scanner(new File("./dict.txt"));
         while(fileScan.hasNext()){
-            wordlist.add(fileScan.nextLine());
+            wordlist.add(fileScan.nextLine()); // storing file in ArrayList to make it easier to use threads
         }
     }
 }

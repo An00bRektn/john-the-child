@@ -1,3 +1,4 @@
+// INFO: https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher
 class VigenereCipher extends ShiftCipher {
     
     private String key;
@@ -95,6 +96,7 @@ class VigenereCipher extends ShiftCipher {
         return returnValue;
     }
 
+    // Gets position of character in alphabet
     private int indexOf(String character){
         int i = 0;
         int returnValue = 0;

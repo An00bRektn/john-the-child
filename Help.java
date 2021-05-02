@@ -42,6 +42,8 @@ public class Help {
 
     // TODO: Implement a CLI version of the app with all of the same functionality of the GUI
     // Tip:  Use a separate class for the CLI version, probably name it jtc.java
+
+    // These methods are for the CLI version
     public static String printHelp(){
         return "";
     }

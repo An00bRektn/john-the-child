@@ -17,8 +17,8 @@ import java.util.ArrayList;
 
 abstract class ShiftCipher {
 
-    protected Queue<Integer> encodingQ;
-    protected Queue<Integer> decodingQ;
+    protected Queue<Integer> encodingQ; // queues allow us to handle what part of the
+    protected Queue<Integer> decodingQ; // key we're using at any given moment
 
     protected ArrayList<String> alphabet;
     protected final String ALPHABET_EN = "abcdefghijklmnopqrstuvwxyz";
@@ -28,7 +28,7 @@ abstract class ShiftCipher {
     abstract public String encode(String message);
     abstract public String decode(String message);
 
-    abstract protected void loadStructs();
+    abstract protected void loadStructs(); // loads queues and alphabet
 
     public ShiftCipher(){
         encodingQ = new LinkedList<Integer>();
