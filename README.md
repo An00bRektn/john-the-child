@@ -1,19 +1,18 @@
-## John the Child
+# John the Child
 > A final project for CPSC-24500
 <p align="center">
     <img src = ./imgs/johnTheChild.jpg>
 </p>
-<h1>What is John the Child?</h1>
-Picture this, you're almost done with an Object Oriented Programming class, and you want to really put some hard work in to a final project to impress people. You'd seen stuff like CyberChef, Ciphey, and John the Ripper, and you also saw how to use queues for shift ciphers in a textbook once.
-<br>
-You try and make your own version. Little did you realize that these types of apps/programs have entire teams behind them.
-<br>
-<i>So you try your hardest to make something that works...</i>
+
+## What is John the Child?
+What was once a child-like attempt to be one-man team behind another cryptography application has become a nice starter for anyone interested in developing a project but doesn't want to work from a blank slate. This was originally created to be a final project for an OOP class, and now serves as an instructional tool for software development.
+Pull requests and issues will likely be ignored unless there's good reason not to.
 <hr>
 <p align="center">
     <img src = "./imgs/jtcCipher.png", style="width=400px; height=225px">
 </p>
-<h1> The Technical Details (thus far...)</h1>
+
+### The Technical Details (thus far...)
 <ul>
     <li><b>2+ Ciphers Supported</b> New ciphers yet to come!</li>
     <li><b>Custom Alphabets</b> that you have to type out if you want to use it</li>
@@ -24,7 +23,7 @@ You try and make your own version. Little did you realize that these types of ap
 > "He gets the job done!"  
 
 <br>
-Author: Ryan Syed (ryansyed@lewisu.edu)
+Author: Ryan S. (rsyed.buisness404@lewisu.edu)
 
 Build Instructions:
 1. Make sure you have Java installed
