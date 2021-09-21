@@ -1,5 +1,5 @@
 # John the Child
-> A final project for CPSC-24500
+> A final project for Object Oriented Programming
 <p align="center">
     <img src = ./imgs/johnTheChild.jpg>
 </p>
@@ -23,7 +23,7 @@ Pull requests and issues will likely be ignored unless there's good reason not t
 > "He gets the job done!"  
 
 <br>
-Author: Ryan S. (rsyed.buisness404@lewisu.edu)
+Author: Ryan S. (rsyed.business404@gmail.com)
 
 Build Instructions:
 1. Make sure you have Java installed
